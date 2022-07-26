@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.sql.Types;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +72,8 @@ public class CustomJavaTypeResolverImpl implements JavaTypeResolver {
         typeMap.put(Types.DATALINK, new JdbcTypeInformation("DATALINK", //$NON-NLS-1$
                 new FullyQualifiedJavaType(Object.class.getName())));
         typeMap.put(Types.DATE, new JdbcTypeInformation("DATE", //$NON-NLS-1$
-                new FullyQualifiedJavaType(LocalDate.class.getName())));
+                //new FullyQualifiedJavaType(LocalDate.class.getName())));
+                new FullyQualifiedJavaType(Date.class.getName())));
         typeMap.put(Types.DECIMAL, new JdbcTypeInformation("DECIMAL", //$NON-NLS-1$
                 new FullyQualifiedJavaType(BigDecimal.class.getName())));
         typeMap.put(Types.DISTINCT, new JdbcTypeInformation("DISTINCT", //$NON-NLS-1$
@@ -114,9 +116,10 @@ public class CustomJavaTypeResolverImpl implements JavaTypeResolver {
         typeMap.put(Types.TIME, new JdbcTypeInformation("TIME", //$NON-NLS-1$
                 new FullyQualifiedJavaType(LocalDateTime.class.getName())));
         typeMap.put(Types.TIMESTAMP, new JdbcTypeInformation("TIMESTAMP", //$NON-NLS-1$
-                new FullyQualifiedJavaType(LocalDateTime.class.getName())));
+                //new FullyQualifiedJavaType(LocalDateTime.class.getName())));
+                new FullyQualifiedJavaType(Date.class.getName())));
         typeMap.put(Types.TINYINT, new JdbcTypeInformation("TINYINT", //$NON-NLS-1$
-                new FullyQualifiedJavaType(Byte.class.getName())));
+                new FullyQualifiedJavaType(Integer.class.getName())));
         typeMap.put(Types.VARBINARY, new JdbcTypeInformation("VARBINARY", //$NON-NLS-1$
                 new FullyQualifiedJavaType("byte[]"))); //$NON-NLS-1$
         typeMap.put(Types.VARCHAR, new JdbcTypeInformation("VARCHAR", //$NON-NLS-1$

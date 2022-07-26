@@ -18,13 +18,15 @@ public class CustomAbstractXmlElementGenerator extends AbstractXmlElementGenerat
 
 	@Override
 	public void addElements(XmlElement parentElement) {
-		addSelectElements(parentElement);
+
+		// 增加xml中的mapper方法
+		/*addSelectElements(parentElement);
 		addBatchUpdateElements(parentElement);
 		addBatchUpdateSelectiveElements(parentElement);
 		addBatchInsertElements(parentElement);
 		addBatchDeleteElements(parentElement);
 		addBatchSelectElements(parentElement);
-		addDeleteSelectiveElements(parentElement);
+		addDeleteSelectiveElements(parentElement);*/
 	}
 
     private void addDeleteSelectiveElements(XmlElement parentElement) {

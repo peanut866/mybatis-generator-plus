@@ -27,6 +27,7 @@ public class CustomPlugin extends PluginAdapter {
 		elementGenerator.setContext(context);
 		elementGenerator.setIntrospectedTable(introspectedTable);
 		elementGenerator.addElements(document.getRootElement());
+
 		return super.sqlMapDocumentGenerated(document, introspectedTable);
 	}
 
@@ -36,21 +37,36 @@ public class CustomPlugin extends PluginAdapter {
 		methodGenerator.setContext(context);
 		methodGenerator.setIntrospectedTable(introspectedTable);
 		methodGenerator.addInterfaceElements(interfaze);
+
 		return super.clientGenerated(interfaze, topLevelClass, introspectedTable);
 	}
 
+	/**
+	 * 生成实体类的创建方法
+	 * @param topLevelClass
+	 * @param introspectedTable
+	 * @return
+	 */
 	@Override
 	public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
 		Set<FullyQualifiedJavaType> set = new HashSet<FullyQualifiedJavaType>();
-		set.add(new FullyQualifiedJavaType("lombok.*"));
-		set.add(new FullyQualifiedJavaType("java.time.LocalDate"));
-		set.add(new FullyQualifiedJavaType("java.time.LocalDateTime"));
+		set.add(new FullyQualifiedJavaType("lombok.Data"));
+		//set.add(new FullyQualifiedJavaType("java.time.LocalDate"));
+		//set.add(new FullyQualifiedJavaType("java.time.LocalDateTime"));
+
+		set.add(new FullyQualifiedJavaType("com.monitor.sfmonitorcommon.entry.BaseEntry"));
+
 		topLevelClass.addImportedTypes(set);
-		topLevelClass.addAnnotation("@Builder");
+		topLevelClass.addAnnotation("@Data");
+
+		topLevelClass.setSuperClass(new FullyQualifiedJavaType("BaseEntry"));
+
+
+		/*topLevelClass.addAnnotation("@Builder");
 		topLevelClass.addAnnotation("@Setter");
 		topLevelClass.addAnnotation("@Getter");
 		topLevelClass.addAnnotation("@NoArgsConstructor");
-		topLevelClass.addAnnotation("@AllArgsConstructor");
+		topLevelClass.addAnnotation("@AllArgsConstructor");*/
 		return super.modelBaseRecordClassGenerated(topLevelClass, introspectedTable);
 	}
 

@@ -4,7 +4,7 @@
 		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 	<!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
-	<classPathEntry location="D:\worktools\maven\repository\mysql\mysql-connector-java\8.0.22\mysql-connector-java-8.0.22.jar" />
+	<classPathEntry location="D:\software\maven\apache-maven-3.6.3-bin\apache-maven-3.6.3\repository\mysql\mysql-connector-java\8.0.22\mysql-connector-java-8.0.22.jar" />
 	<!---->
 	<context id="tables" targetRuntime="MyBatis3">
 
@@ -20,9 +20,9 @@
 
 		<!-- 数据库连接 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://192.168.1.1:3306/zlp"
-						userId="root"
-						password="123456">
+						connectionURL="jdbc:mysql://localhost:3306/my_test?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2B8&amp;useSSL=false"
+						userId="peanut"
+						password="peanut">
 		</jdbcConnection>
 
 <!--		将TIMESTAMP映射成LocalDateTime，将Date映射成LocalDate，将符合标准的浮点数正确映射成Double-->
@@ -48,10 +48,15 @@
 		</javaClientGenerator>
 
 		<!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-		<table tableName="t_wx_user" domainObjectName="WxUser"
+		<table tableName="thirdtest" domainObjectName="Thirdtest"
 			   enableCountByExample="false" enableUpdateByExample="false"
 			   enableDeleteByExample="false" enableSelectByExample="false"
-			   selectByExampleQueryId="false">
+			   selectByExampleQueryId="false"
+			   enableInsert="false"
+			   enableDeleteByPrimaryKey="false"
+			   enableSelectByPrimaryKey="false"
+			   enableUpdateByPrimaryKey="false">
+			<!--<property name="modelOnly" value="true"/>-->
 			<columnRenamingRule searchString="^(c|dt|n)_" replaceString=""/>
 		</table>
 

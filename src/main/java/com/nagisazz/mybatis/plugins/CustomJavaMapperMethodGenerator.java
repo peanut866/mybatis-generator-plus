@@ -12,7 +12,8 @@ public class CustomJavaMapperMethodGenerator extends AbstractJavaMapperMethodGen
     @Override
     public void addInterfaceElements(Interface interfaze) {
 
-        addMethod("selectOne", false, false, false, false, interfaze);
+        // mapper.java中，新增的方法，对应mapper xml
+        /*addMethod("selectOne", false, false, false, false, interfaze);
         addMethod("selectList", false, true, false, false, interfaze);
         addMethod("deleteSelective", true, false, false, false, interfaze);
         if (introspectedTable.getPrimaryKeyColumns() != null) {
@@ -21,7 +22,7 @@ public class CustomJavaMapperMethodGenerator extends AbstractJavaMapperMethodGen
             addMethod("batchInsert", true, false, true, false, interfaze);
             addMethod("batchDelete", true, false, true, true, interfaze);
             addMethod("batchSelect", false, true, true, true, interfaze);
-        }
+        }*/
     }
 
     /**
